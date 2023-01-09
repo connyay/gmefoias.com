@@ -1,5 +1,6 @@
 ---
-title: "{{ replace .Name "-" " " | title }}"
-date: {{ .Date }}
-draft: true
+title: "{{ .Name }}"
+date: 2022-01-01T00:00:00-00:00
+tags:
+    - foia
 ---

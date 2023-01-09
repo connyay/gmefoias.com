@@ -1,6 +1,6 @@
 baseURL = "http://example.org/"
 languageCode = "en-us"
-paginate = 5
+paginate = 6
 theme = "ink-free"
 title = "Freedom Of Information"
 
@@ -11,7 +11,7 @@ posts = "/:year/:month/:title"
 github = "https://github.com/connyay/foia"
 maxTags = 7
 mode = "auto"
-subtitle = "FOIA requests submitted to the SEC by a retail investor"
+subtitle = "SEC FOIA requests submitted by a retail investor"
 toc = true
 wpm = 250
 
