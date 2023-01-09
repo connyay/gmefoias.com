@@ -1,4 +1,4 @@
-baseURL = "http://foia.lol/"
+baseURL = "/"
 languageCode = "en-us"
 paginate = 6
 theme = "ink-free"
