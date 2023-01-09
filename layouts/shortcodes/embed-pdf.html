@@ -1,6 +1,6 @@
 <script type="text/javascript" src= '/js/pdf-js/build/pdf.js'></script>
 <style>
-#the-canvas {
+.pdf-canvas {
   border: 1px solid black;
   direction: ltr;
   width: 100%;
@@ -8,13 +8,13 @@
   display: none;
 }
 
-#paginator {
+.pdf-paginator {
   display: none;
   text-align: center;
   margin-bottom: 10px;
 }
 
-#loadingWrapper {
+.pdf-loadingWrapper {
   display: none;
   justify-content: center;
   align-items: center;
@@ -22,7 +22,7 @@
   height: 350px;
 }
 
-#loading {
+.pdf-loading {
   display: inline-block;
   width: 50px;
   height: 50px;
@@ -41,21 +41,21 @@
 }
 </style>
 
-<div id="paginator">
-    <button id="prev">Previous</button>
-    <button id="next">Next</button>
-    &nbsp; &nbsp;
-    <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
-</div>
 <div id="embed-pdf-container">
-    <div id="loadingWrapper">
-      <div id="loading"></div>
+    <div id="{{ .Get "id" }}-loadingWrapper" class="pdf-loading">
+      <div class="pdf-loading"></div>
     </div>
-    <canvas id="the-canvas"></canvas>
+    <canvas id="{{ .Get "id" }}-canvas" class="pdf-canvas"></canvas>
+</div>
+<div class="pdf-paginator" id="{{ .Get "id" }}-paginator">
+  <button id="{{ .Get "id" }}-prev">Previous</button>
+  <button id="{{ .Get "id" }}-next">Next</button>
+  &nbsp; &nbsp;
+  <span>Page: <span id="{{ .Get "id" }}-page_num"></span> / <span id="{{ .Get "id" }}-page_count"></span></span>
 </div>
 
 <script type="text/javascript">
-window.onload = function() {
+  window.addEventListener('load', function() {
 // If absolute URL from the remote server is provided, configure the CORS
 // header on that server.
 var url = "{{.Site.BaseURL}}" + '{{ .Get "url" }}';
@@ -76,10 +76,10 @@ var pdfDoc = null,
     pageRendering = false,
     pageNumPending = null,
     scale = 3,
-    canvas = document.getElementById('the-canvas'),
+    canvas = document.getElementById('{{ .Get "id" }}-canvas'),
     ctx = canvas.getContext('2d'),
-    paginator = document.getElementById("paginator"),
-    loadingWrapper = document.getElementById('loadingWrapper');
+    paginator = document.getElementById("{{ .Get "id" }}-paginator"),
+    loadingWrapper = document.getElementById('{{ .Get "id" }}-loadingWrapper');
 
 
 // Attempt to show paginator and loader if enabled
@@ -119,7 +119,7 @@ function renderPage(num) {
   });
 
   // Update page counters
-  document.getElementById('page_num').textContent = num;
+  document.getElementById('{{ .Get "id" }}-page_num').textContent = num;
 }
 
 /**
@@ -169,7 +169,7 @@ function onPrevPage() {
   pageNum--;
   queueRenderPage(pageNum);
 }
-document.getElementById('prev').addEventListener('click', onPrevPage);
+document.getElementById('{{ .Get "id" }}-prev').addEventListener('click', onPrevPage);
 
 /**
  * Displays next page.
@@ -181,7 +181,7 @@ function onNextPage() {
   pageNum++;
   queueRenderPage(pageNum);
 }
-document.getElementById('next').addEventListener('click', onNextPage);
+document.getElementById('{{ .Get "id" }}-next').addEventListener('click', onNextPage);
 
 /**
  * Asynchronously downloads PDF.
@@ -189,7 +189,7 @@ document.getElementById('next').addEventListener('click', onNextPage);
 pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
   pdfDoc = pdfDoc_;
   var numPages = pdfDoc.numPages;
-  document.getElementById('page_count').textContent = numPages;
+  document.getElementById('{{ .Get "id" }}-page_count').textContent = numPages;
   
   // If the user passed in a number that is out of range, render the last page.
   if(pageNum > numPages) {
@@ -199,6 +199,6 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
   // Initial/first page rendering
   renderPage(pageNum);
 });
-}
+});
 
 </script>
