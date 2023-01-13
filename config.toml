@@ -11,8 +11,6 @@ title = "FOIA"
 [permalinks]
 posts = "/:year/:month/:title"
 
-[minify]
-minifyOutput = true
 
 [params]
 DateFormat = "January 2, 2006"
