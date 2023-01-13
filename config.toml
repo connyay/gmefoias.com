@@ -1,61 +1,47 @@
 baseURL = "/"
-languageCode = "en-us"
-paginate = 6
-theme = "ink-free"
-title = "Freedom Of Information"
+buildDrafts = false
+buildExpired = false
+buildFuture = false
+enableRobotsTXT = true
+paginate = 100
+pygmentsUseClasses = true
+theme = "PaperMod"
+title = "FOIA"
 
 [permalinks]
 posts = "/:year/:month/:title"
 
+[minify]
+minifyOutput = true
+
 [params]
-github = "https://github.com/connyay/foia"
-maxTags = 7
-mode = "auto"
-subtitle = "SEC FOIA requests submitted by a retail investor"
-toc = true
-wpm = 250
+DateFormat = "January 2, 2006"
+ShowBreadCrumbs = true
+ShowPostNavLinks = true
+ShowRssButtonInSectionTermList = true
+defaultTheme = "auto"
+description = "SEC FOIA requests submitted by a retail investor"
+env = "production"
+title = "Freedom of Information"
+hideFooter = true
+
+[params.homeInfoParams]
+Content = "Documentation of FOIA request/responses between a retail investor and the SEC."
+Title = "What is this?"
+
+[params.editPost]
+Text = "Suggest Changes"
+URL = "https://github.com/connyay/foia/tree/main/content"
+appendFilePath = true
+
+# [[menu.main]]
+# identifier = "categories"
+# name = "Categories"
+# url = "/categories/"
+# weight = 10
 
 [[menu.main]]
-name = "Home"
-url = "/"
-weight = 1
-
-[[menu.main]]
-name = "All"
-url = "/posts"
-weight = 2
-
-[[menu.main]]
-name = "About"
-url = "/about"
-weight = 3
-
-[[menu.main]]
+identifier = "tags"
 name = "Tags"
-url = "/tags"
-weight = 4
-
-[[params.social]]
-icon = "rss"
-name = "RSS"
-url = "/index.xml"
-
-[taxonomies]
-tag = "tags"
-
-[markup]
-[markup.highlight]
-codeFences = true
-guessSyntax = false
-hl_Lines = ""
-lineNoStart = 1
-lineNos = true
-lineNumbersInTable = true
-noClasses = true
-style = "github"
-tabWidth = 4
-
-[markup.tableOfContents]
-endLevel = 3
-ordered = true
-startLevel = 2
+url = "/tags/"
+weight = 20
