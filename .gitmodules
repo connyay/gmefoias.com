@@ -1,9 +1,0 @@
-[submodule "themes/--force"]
-	path = themes/--force
-	url = https://github.com/chollinger93/ink-free
-[submodule "themes/ink-free"]
-	path = themes/ink-free
-	url = https://github.com/chollinger93/ink-free
-[submodule "themes/PaperMod"]
-	path = themes/PaperMod
-	url = https://github.com/adityatelange/hugo-PaperMod.git
