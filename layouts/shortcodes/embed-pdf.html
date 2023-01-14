@@ -1,8 +1,5 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js" integrity="sha512-MoP2OErV7Mtk4VL893VYBFq8yJHWQtqJxTyIAsCVKzILrvHyKQpAwJf9noILczN6psvXUxTr19T5h+ndywCoVw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<style>
-.pdf-wrapper { height: 60rem; }
-</style>
-<div id="{{ .Get "id" }}-pdf-embed" class="pdf-wrapper"></div>
+<div id="{{ .Get "id" }}-pdf-embed"></div>
 <script type="text/javascript">
-  PDFObject.embed('{{ .Get "url" }}', '#{{ .Get "id" }}-pdf-embed');
+  PDFObject.embed('{{ .Get "url" }}', '#{{ .Get "id" }}-pdf-embed', { height: "60rem" });
 </script>
