@@ -24,7 +24,7 @@ title = "Freedom of Information"
 hideFooter = true
 
 [params.homeInfoParams]
-Content = "Documentation of FOIA request/responses between a retail investor and the SEC."
+Content = "Documentation of FOIA request/responses between a retail investor and the SEC. All interactions are PDF letters best viewed on a desktop browser."
 Title = "What is this?"
 
 [params.editPost]
