@@ -22,6 +22,7 @@ description = "SEC FOIA requests submitted by a retail investor"
 env = "production"
 title = "Freedom of Information"
 hideFooter = true
+disableScrollToTop = true
 
 [params.homeInfoParams]
 Content = "These posts document FOIA request/responses between a retail investor and the SEC. All interactions are PDF letters best viewed on a desktop browser."
