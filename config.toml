@@ -6,7 +6,7 @@ enableRobotsTXT = true
 paginate = 100
 pygmentsUseClasses = true
 theme = "PaperMod"
-title = "foia.lol"
+title = "gmefoias.com"
 
 [permalinks]
 posts = "/:year/:month/:title"
